@@ -1,22 +1,21 @@
 {
   "main": "./src/oniguruma.js",
-  "name": "oniguruma",
+  "name": "oniguruma-prebuilt",
   "description": "oniguruma regular expression library",
   "version": "7.2.2",
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/atom/node-oniguruma/raw/master/LICENSE.md"
+      "url": "http://github.com/Aerijo/node-oniguruma-prebuilt/raw/master/LICENSE.md"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom/node-oniguruma.git"
+    "url": "https://github.com/Aerijo/node-oniguruma-prebuilt.git"
   },
   "bugs": {
-    "url": "https://github.com/atom/node-oniguruma/issues"
+    "url": "https://github.com/Aerijo/node-oniguruma-prebuilt/issues"
   },
-  "homepage": "http://atom.github.io/node-oniguruma",
   "keywords": [
     "regex",
     "regexp",
@@ -29,9 +28,11 @@
     "jasmine-focused": "~1.0.7"
   },
   "dependencies": {
-    "nan": "^2.14.0"
+    "nan": "^2.14.0",
+    "prebuild-install": "5.3.3"
   },
   "scripts": {
+    "install": "prebuild-install || node-gyp rebuild",
     "test": "jasmine-focused --captureExceptions spec/",
     "benchmark": "benchmark/benchmark.coffee"
   }

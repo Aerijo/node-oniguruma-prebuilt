@@ -1,34 +1,23 @@
-os:
-  - linux
-
 language: node_js
 
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-4.8
-
 node_js:
-  - "6"
-  - "8"
-  - "10"
-  - "12"
+  - 10
 
-install:
-  - export CXX=g++-4.8
-  - $CXX --version
-  - npm i
+os:
+  - linux
+  - osx
+  - windows
 
-notifications:
-  email:
-    on_success: never
-    on_failure: change
+jobs:
+  include:
+    - os: linux
+      dist: bionic
+    - os: osx
+    - os: windows
 
-git:
-  depth: 10
-
-branches:
-  only:
-    - master
+deploy:
+  cleanup: false
+  on:
+    tags: true
+  provider: script
+  script: npm install -g prebuild@9.1.1 && npm run pre-build && npm run pre-build:upload -u ${PREBUILD_UPLOAD}
