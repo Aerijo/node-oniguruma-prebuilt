@@ -33,6 +33,8 @@
   },
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
+    "pre-build": "prebuild --all --strip --verbose",
+    "pre-build:upload": "prebuild --upload-all",
     "test": "jasmine-focused --captureExceptions spec/",
     "benchmark": "benchmark/benchmark.coffee"
   }
