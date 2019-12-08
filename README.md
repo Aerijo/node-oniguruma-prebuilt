@@ -3,6 +3,12 @@
 [![Dependency Status](https://david-dm.org/atom/node-oniguruma.svg)](https://david-dm.org/atom/node-oniguruma)
 
 Fork of https://github.com/atom/node-oniguruma to provide prebuilt binaries
+
+Steps to add Oniguruma:
+- Clone into `deps/oniguruma`
+- Run (in `deps/oniguruma`) `autoreconf -vfi`
+- Run `./configure`
+- Run (in package root) `apx install`
 ______
 
 Native Node bindings to the Oniguruma regular expressions library.
