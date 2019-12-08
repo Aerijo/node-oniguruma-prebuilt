@@ -24,18 +24,18 @@
     "async"
   ],
   "devDependencies": {
-    "async": "~2.6.2",
-    "jasmine-focused": "~1.0.7"
+    "async": "3.1.0",
+    "jasmine": "3.5.0"
   },
   "dependencies": {
-    "nan": "^2.14.0",
+    "nan": "2.14.0",
     "prebuild-install": "5.3.3"
   },
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
     "pre-build": "prebuild --runtime electron --target 4.2.7 --verbose",
     "pre-build:upload": "prebuild --upload-all",
-    "test": "jasmine-focused --captureExceptions spec/",
+    "test": "jasmine spec/",
     "benchmark": "benchmark/benchmark.coffee"
   }
 }
