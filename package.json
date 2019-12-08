@@ -25,7 +25,7 @@
   ],
   "devDependencies": {
     "async": "3.1.0",
-    "jasmine": "3.5.0"
+    "jasmine-focused": "1.0.7"
   },
   "dependencies": {
     "nan": "2.14.0",
