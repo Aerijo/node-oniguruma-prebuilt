@@ -3,7 +3,7 @@ const path = require("path");
 
 function install() {
   if (process.platform === "win32") {
-    // cp.execSync('"nmake.exe" --version', {cwd: path.resolve(__dirname, "..", "deps", "oniguruma"), stdio: "inherit"});
+    cp.execSync('"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\BuildTools\\Common7\\Tools\\VsDevCmd.bat"', {cwd: path.resolve(__dirname, "..", "deps", "oniguruma"), stdio: "inherit"});
     cp.execSync("make_win.bat", {cwd: path.resolve(__dirname, "..", "deps", "oniguruma"), stdio: "inherit"});
   } else {
     cp.execSync("autoreconf -vfi", {cwd: path.resolve(__dirname, "..", "deps", "oniguruma"), stdio: "inherit"});
