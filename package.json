@@ -32,7 +32,7 @@
     "prebuild-install": "5.3.3"
   },
   "scripts": {
-    "install": "prebuild-install || node-gyp rebuild",
+    "install": "prebuild-install || node ./script/install.js && node-gyp rebuild",
     "pre-build": "prebuild --runtime electron --target 4.2.7 --verbose",
     "pre-build:upload": "prebuild --upload-all",
     "test": "jasmine spec/",
