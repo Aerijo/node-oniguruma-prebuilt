@@ -2,8 +2,12 @@ const cp = require("child_process");
 const path = require("path");
 
 function install() {
-  cp.execSync("autoreconf -vfi", {cwd: path.resolve(__dirname, "..", "deps", "oniguruma"), stdio: "inherit"});
-  cp.execSync("./configure", {cwd: path.resolve(__dirname, "..", "deps", "oniguruma"), stdio: "inherit"});
+  if (process.platform === "win32") {
+    cp.execSync("make_win.bat", {cwd: path.resolve(__dirname, "..", "deps", "oniguruma"), stdio: "inherit"});
+  } else {
+    cp.execSync("autoreconf -vfi", {cwd: path.resolve(__dirname, "..", "deps", "oniguruma"), stdio: "inherit"});
+    cp.execSync("./configure", {cwd: path.resolve(__dirname, "..", "deps", "oniguruma"), stdio: "inherit"});
+  }
 }
 
 install();
