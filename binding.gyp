@@ -20,8 +20,7 @@
       ],
       'direct_dependent_settings': {
         'include_dirs': [
-          'deps/oniguruma',
-          'deps/oniguruma/src'
+          'deps/oniguruma'
         ],
       },
       'include_dirs': [
@@ -88,7 +87,10 @@
       'dependencies': [
         'oniguruma'
       ],
-      'include_dirs': [ '<!(node -e "require(\'nan\')")' ],
+      'include_dirs': [
+        '<!(node -e "require(\'nan\')")',
+        'deps/oniguruma/src'
+      ],
       'sources': [
         'src/onig-result.cc',
         'src/onig-reg-exp.cc',
@@ -115,11 +117,6 @@
           ]
         }],
         ['OS=="win"', {
-          'msvs_disabled_warnings': [
-            4244,  # conversion from 'double' to 'int', possible loss of data
-            4267,  # conversion from 'size_t' to 'int', possible loss of data
-            4530,  # C++ exception handler used, but unwind semantics are not enabled
-          ],
           'msvs_settings': {
             'VCCLCompilerTool' : {
               'AdditionalOptions' : ['/EHsc']
@@ -128,7 +125,6 @@
           'defines': [
             'ONIG_EXTERN=extern',
           ],
-
         }],
         ['OS=="freebsd"', {
           'cflags': [
