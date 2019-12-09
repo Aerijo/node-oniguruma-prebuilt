@@ -3,6 +3,9 @@ language: node_js
 node_js:
   - 10
 
+before_install:
+  - sudo apt-get -y install tree
+
 jobs:
   include:
     - os: linux
