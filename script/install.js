@@ -3,6 +3,7 @@ const path = require("path");
 
 function install() {
   if (process.platform === "win32") {
+    cp.execSync("nmake --version", {cwd: path.resolve(__dirname, "..", "deps", "oniguruma"), stdio: "inherit"});
     cp.execSync("make_win.bat", {cwd: path.resolve(__dirname, "..", "deps", "oniguruma"), stdio: "inherit"});
   } else {
     cp.execSync("autoreconf -vfi", {cwd: path.resolve(__dirname, "..", "deps", "oniguruma"), stdio: "inherit"});
