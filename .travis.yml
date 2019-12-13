@@ -1,7 +1,10 @@
 language: node_js
 
 node_js:
-  - 10
+  - "6"
+  - "8"
+  - "10"
+  - "12"
 
 jobs:
   include:
@@ -9,6 +12,10 @@ jobs:
       dist: bionic
     - os: osx
     - os: windows
+
+env:
+  global:
+    - npm_config_jobs=max
 
 deploy:
   skip_cleanup: true
