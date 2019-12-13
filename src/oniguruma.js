@@ -1,7 +1,11 @@
 'use strict'
 
-const OnigScanner = require('../build/Release/onig_scanner.node').OnigScanner
-const OnigString = require('../build/Release/onig_scanner.node').OnigString
+const OnigScanner = require('../build/Debug/onig_scanner.node').OnigScanner
+const OnigString = require('../build/Debug/onig_scanner.node').OnigString
+
+// const SegfaultHandler = require('segfault-handler');
+//
+// SegfaultHandler.registerHandler();
 
 function OnigRegExp(source) {
   this.source = source;

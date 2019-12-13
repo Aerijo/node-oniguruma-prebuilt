@@ -25,14 +25,15 @@
   ],
   "devDependencies": {
     "async": "3.1.0",
-    "jasmine-focused": "1.0.7"
+    "jasmine-focused": "1.0.7",
+    "segfault-handler": "^1.3.0"
   },
   "dependencies": {
     "nan": "2.14.0",
     "prebuild-install": "5.3.3"
   },
   "scripts": {
-    "install": "prebuild-install || node ./script/install.js && node-gyp rebuild",
+    "install": "prebuild-install || node ./script/install.js && node-gyp --debug rebuild",
     "pre-build": "prebuild --runtime electron --target 4.2.7 --verbose",
     "pre-build:upload": "prebuild --upload-all",
     "test": "jasmine-focused --captureExceptions spec/",
