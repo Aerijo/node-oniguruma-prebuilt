@@ -6,12 +6,10 @@ node_js:
   - "10"
   - "12"
 
-jobs:
-  include:
-    - os: linux
-      dist: bionic
-    - os: osx
-    - os: windows
+os:
+  - linux
+  - osx
+  - windows
 
 env:
   global:
