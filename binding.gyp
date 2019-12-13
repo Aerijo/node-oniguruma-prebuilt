@@ -11,6 +11,20 @@
           'defines': [
             'ONIG_EXTERN=extern',
           ],
+          'direct_dependent_settings': {
+            'defines': [
+              'ONIG_EXTERN=extern',
+            ],
+          },
+          "include_dirs": [
+              "deps/oniguruma",
+            ],
+            "sources": [
+              "deps/oniguruma/src/unicode_fold1_key.c",
+              "deps/oniguruma/src/unicode_fold2_key.c",
+              "deps/oniguruma/src/unicode_fold3_key.c",
+              "deps/oniguruma/src/unicode_unfold_key.c",
+          ]
         }],
         ['OS=="linux"', {
           'cflags': [
@@ -20,7 +34,7 @@
       ],
       'direct_dependent_settings': {
         'include_dirs': [
-          'deps/oniguruma'
+          'deps/oniguruma/src'
         ],
       },
       'include_dirs': [
@@ -28,19 +42,19 @@
         'deps/oniguruma/src'
       ],
       'sources': [
-        'deps/oniguruma/src/oniggnu.h',
-        'deps/oniguruma/src/onigposix.h',
-        'deps/oniguruma/src/oniguruma.h',
+        # 'deps/oniguruma/src/oniggnu.h',
+        # 'deps/oniguruma/src/onigposix.h',
+        # 'deps/oniguruma/src/oniguruma.h',
         'deps/oniguruma/src/regcomp.c',
         'deps/oniguruma/src/regenc.c',
-        'deps/oniguruma/src/regenc.h',
+        # 'deps/oniguruma/src/regenc.h',
         'deps/oniguruma/src/regerror.c',
         'deps/oniguruma/src/regexec.c',
         'deps/oniguruma/src/regext.c',
         'deps/oniguruma/src/reggnu.c',
-        'deps/oniguruma/src/regint.h',
+        # 'deps/oniguruma/src/regint.h',
         'deps/oniguruma/src/regparse.c',
-        'deps/oniguruma/src/regparse.h',
+        # 'deps/oniguruma/src/regparse.h',
         'deps/oniguruma/src/regposerr.c',
         'deps/oniguruma/src/regposix.c',
         'deps/oniguruma/src/regsyntax.c',
@@ -85,11 +99,10 @@
     {
       'target_name': 'onig_scanner',
       'dependencies': [
-        'oniguruma'
+        'oniguruma',
       ],
       'include_dirs': [
         '<!(node -e "require(\'nan\')")',
-        'deps/oniguruma/src'
       ],
       'sources': [
         'src/onig-result.cc',
@@ -122,9 +135,6 @@
               'AdditionalOptions' : ['/EHsc']
             }
           },
-          'defines': [
-            'ONIG_EXTERN=extern',
-          ],
         }],
         ['OS=="freebsd"', {
           'cflags': [
