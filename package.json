@@ -33,7 +33,7 @@
   },
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
-    "pre-build": "prebuild --runtime electron --verbose",
+    "pre-build": "prebuild --runtime electron -t 4.2.7 -t 5.0.2 --verbose",
     "pre-build:upload": "prebuild --upload-all",
     "test": "jasmine-focused --captureExceptions spec/",
     "benchmark": "benchmark/benchmark.coffee"
